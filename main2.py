@@ -1,14 +1,10 @@
 import threading
-
 import telegram
- 
- 
 from config2 import TOKEN
 from telegram import *
 from telegram.ext import *
 from requests import *
 from pictures import *
- 
 from time import *
 import time
 import pyodbc
