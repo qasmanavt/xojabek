@@ -1,31 +1,24 @@
 import threading
-from contextvars import copy_context
-from functools import update_wrapper
-import json
-from logging import Logger
-from os import name, stat
-from time import sleep
-from typing import Text
-from aiogram import types
-from aiogram.types import message, message_id, user
-from telegram.ext import messagehandler
+
+import telegram
+ 
+ 
 from config2 import TOKEN
 from telegram import *
 from telegram.ext import *
 from requests import *
 from pictures import *
-from datetime import datetime
-from json import JSONEncoder
+ 
 from time import *
 import time
 import pyodbc
-import telebot
+ 
 phone_number=[]
 list=[]
 a=0
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
-bot = telebot.TeleBot(TOKEN)
+bot = telegram.Bot(TOKEN)
 password = "qwerty"
 connection = pyodbc.connect(
     "Driver={SQL Server Native Client 11.0};"
