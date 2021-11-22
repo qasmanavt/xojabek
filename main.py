@@ -5,8 +5,11 @@ from telegram.ext import *
 from requests import *
 from pictures import *
 from datetime import datetime
+
 import pyodbc
  
+
+
 
 phone_number=""
 updater = Updater(TOKEN)
