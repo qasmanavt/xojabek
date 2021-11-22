@@ -1,26 +1,17 @@
-from contextvars import copy_context
-from functools import update_wrapper
-import json
-from logging import Logger
-from os import name,stat
-from typing import Text
-from aiogram import types
-from aiogram.types import message, message_id, user
+import telegram
 from config import TOKEN
-from requests.models import ContentDecodingError
 from telegram import *
 from telegram.ext import *
 from requests import *
 from pictures import *
 from datetime import datetime
-from json import JSONEncoder
 import pyodbc
-import telebot
+ 
 
 phone_number=""
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
-bot = telebot.TeleBot(TOKEN)
+bot = telegram.Bot(TOKEN)
 user = "register"
 customer = "Chef"
 order_status = "waiting"
