@@ -10,6 +10,7 @@ from contac import *
 from texts import *
 from handler import *
 from queryHnadler import *
+from start import *
  
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
@@ -17,21 +18,6 @@ bot = telegram.Bot(TOKEN)
 
 
  
-def startCommand(update: Update, context: CallbackContext):
-   
-
-        
-        
-        contact_keyboard=[[KeyboardButton(text=contact_button, request_contact=True)]]  
-     
-        context.bot.send_message(chat_id=update.effective_chat.id,
-                            text=contact_button_text, reply_markup=ReplyKeyboardMarkup(contact_keyboard))
-        
-        time.sleep(10)
- 
-        buttons = [[KeyboardButton(begin)]]
-        context.bot.send_message(chat_id=update.effective_chat.id,
-                            text=begin_text, reply_markup=ReplyKeyboardMarkup(buttons))
 
 
 dispatcher.add_handler(CallbackQueryHandler(queryHandler))
