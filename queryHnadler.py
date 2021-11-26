@@ -1,11 +1,8 @@
-from telegram import *
-from telegram.ext import *
 from requests import *
 from pictures import *
 from datetime import datetime 
 from contac import *
 from texts import *
-from message_handler import *
 import contac
 def queryHandler(update: Update, context: CallbackContext):
     query = update.callback_query.data

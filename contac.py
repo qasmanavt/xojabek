@@ -1,4 +1,3 @@
-from requests.models import requote_uri
 from telegram import *
 from telegram.ext import *
 

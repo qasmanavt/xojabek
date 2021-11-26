@@ -1,13 +1,10 @@
 from telegram import *
 from telegram.ext import *
-from requests import *
-from pictures import *
 from datetime import   time
 import time
-from contac import *
 from texts import *
-from message_handler import *
-from queryHnadler import *
+ 
+ 
 
 def startCommand(update: Update, context: CallbackContext):
        

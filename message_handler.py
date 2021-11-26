@@ -1,9 +1,7 @@
-
 from telegram import *
 from telegram.ext import *
 from requests import *
 from pictures import *
-from contac import *
 from texts import *
 import queryHnadler
 import contac
@@ -77,7 +75,7 @@ def messageHandler(update: Update, context: CallbackContext):
 
     if Order_Status in update.message.text:
         cursor = connection.cursor()
-        cursor.execute(f'select top 1 status  from bot2 where phone_number=? order by time desc ;',phone_number2)
+        cursor.execute(f'select top 1 status  from bot2 where phone_number=? order by time desc ;',contac.phone_number2)
         context.bot.send_message(chat_id=update.effective_chat.id,text=cursor.fetchone()[0])
         connection.commit()
     
