@@ -57,7 +57,7 @@ def messageHandler(update: Update, context: CallbackContext):
                 [InlineKeyboardButton(second_food_name, callback_data="2")],
                 [InlineKeyboardButton(third_food_name, callback_data="3")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                reply_markup=InlineKeyboardMarkup(buttons), text="choose what food you want😊😊😊")
+                                reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
 
     if Basket in update.message.text:
         text = ("first food count "+str(first_food), "second food count "+str(second_food), "third food count "+str(third_food),
@@ -78,7 +78,7 @@ def messageHandler(update: Update, context: CallbackContext):
                    [InlineKeyboardButton(second_food_name, callback_data="2")],
                    [InlineKeyboardButton(third_food_name, callback_data="3")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                 reply_markup=InlineKeyboardMarkup(buttons), text="choose what food you want😊😊😊")
+                                 reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
        
        
         cursor = connection.cursor()
@@ -110,7 +110,7 @@ def queryHandler(update: Update, context: CallbackContext):
         buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="first")],
                     [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                    reply_markup=InlineKeyboardMarkup(buttons), text="this food costs :   10000 sum 😄\nname of food:   pizza")
+                                    reply_markup=InlineKeyboardMarkup(buttons), text=first_food_price)
         
 
     elif "2" in query:
@@ -121,7 +121,7 @@ def queryHandler(update: Update, context: CallbackContext):
         buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="second")],
                     [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
         a = context.bot.send_message(chat_id=update.effective_chat.id,
-                                        reply_markup=InlineKeyboardMarkup(buttons), text="this food costs :   15000 sum 🍞\nname of food:   sweets ")
+                                        reply_markup=InlineKeyboardMarkup(buttons), text=second_food_price)
     
 
     elif "3" in query:
@@ -131,7 +131,7 @@ def queryHandler(update: Update, context: CallbackContext):
         buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="third")],
                     [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                    reply_markup=InlineKeyboardMarkup(buttons), text="this food costs :    20000 🥪 sum\nname of food:   eggs")
+                                    reply_markup=InlineKeyboardMarkup(buttons), text=third_food_price)
 
     elif "tugadi" in query:
         phone_number=phone_number2[0]
