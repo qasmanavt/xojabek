@@ -31,6 +31,7 @@ Menu_text="choose what food you want😊😊😊"
 
 Order_Status="order status"
 Finish_Order="finish order! :("
+Finish="Finished"
 
 start_text="hello my dear , thanks for using this bot"
 
