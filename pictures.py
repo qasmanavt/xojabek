@@ -1,5 +1,6 @@
-url="https://media.istockphoto.com/photos/food-pyramid-pie-chart-picture-id146807105?k=20&m=146807105&s=612x612&w=0&h=hDTwro36FleNJZh5EbfnOVMyJgIBr6i2zdTgKBMjUDo="
+url="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
 url_for_chef="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29va2luZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-first_food_url="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-second_food_url="https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-third_food_url="https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+first_food_url="https://media.gettyimages.com/photos/kazakh-plov-picture-id1182703710?s=2048x2048"
+second_food_url="https://media.istockphoto.com/photos/vegetable-and-meat-skewers-in-a-herb-marinade-picture-id538168264"
+third_food_url="https://image.freepik.com/free-photo/traditional-uzbek-meal-soup-shurpa-with-beef-and-vegetables-in-plate-with-oriental-ornament_114941-569.jpg"
+

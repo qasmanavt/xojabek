@@ -10,11 +10,11 @@ first_food_price="this food costs :   10000 sum 😄\nname of food:   Plov"
 
 second_food = 0
 second_food_name="Shashlik"
-second_food_price="this food costs :   15000 sum 🍞\nname of food:   sweets "
+second_food_price="this food costs :   15000 sum 🍞\nname of food:   Shashlik "
 
 third_food = 0
-third_food_name="Xanim"
-third_food_price="this food costs :    20000 🥪 sum\nname of food:   eggs"
+third_food_name="Shurpa"
+third_food_price="this food costs :    20000 🥪 sum\nname of food:   Shurpa"
 
 contact_button="Share_Contact"
 contact_button_text="Please press to Button"
