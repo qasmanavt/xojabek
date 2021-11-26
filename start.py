@@ -6,7 +6,7 @@ from datetime import   time
 import time
 from contac import *
 from texts import *
-from handler import *
+from message_handler import *
 from queryHnadler import *
 
 def startCommand(update: Update, context: CallbackContext):

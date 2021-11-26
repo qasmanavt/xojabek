@@ -5,7 +5,8 @@ from pictures import *
 from datetime import datetime 
 from contac import *
 from texts import *
-from handler import *
+from message_handler import *
+import contac
 def queryHandler(update: Update, context: CallbackContext):
     query = update.callback_query.data
     update.callback_query.answer()
@@ -42,16 +43,17 @@ def queryHandler(update: Update, context: CallbackContext):
                                     reply_markup=InlineKeyboardMarkup(buttons), text=third_food_price)
 
     elif Finish in query:
-        phone_number=phone_number2[0]
         
+        print(contac.phone_number2)
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=Finish)
         now = datetime.now()
-        print(phone_number)
+        
         cursor = connection.cursor()
         cursor.execute('insert into bot2 values (?,?,?,?,?,?,?,?);',
-                        (first_food, second_food, third_food, update.effective_chat.full_name, update.effective_chat.id, order_status, now,phone_number))
+                        (first_food, second_food, third_food, update.effective_chat.full_name, update.effective_chat.id, order_status, now,contac.phone_number2))
         connection.commit()
+        contac.phone_number2=""
         first_food=0
         second_food=0
         third_food=0
