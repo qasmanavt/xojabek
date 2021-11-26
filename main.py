@@ -4,8 +4,6 @@ from telegram import *
 from telegram.ext import *
 from requests import *
 from pictures import *
-from datetime import datetime, time
-import time
 from contac import *
 from texts import *
 from handler import *
@@ -15,10 +13,6 @@ from start import *
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 bot = telegram.Bot(TOKEN)
-
-
- 
-
 
 dispatcher.add_handler(CallbackQueryHandler(queryHandler))
 dispatcher.add_handler(CommandHandler("start", startCommand))

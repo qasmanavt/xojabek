@@ -15,8 +15,8 @@ def queryHandler(update: Update, context: CallbackContext):
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(first_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="first")],
-                    [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data="first")],
+                    [InlineKeyboardButton(Finish_Order, callback_data="tugadi")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
                                     reply_markup=InlineKeyboardMarkup(buttons), text=first_food_price)
         
@@ -26,8 +26,8 @@ def queryHandler(update: Update, context: CallbackContext):
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(second_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="second")],
-                    [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data="second")],
+                    [InlineKeyboardButton(Finish_Order, callback_data="tugadi")]]
         a = context.bot.send_message(chat_id=update.effective_chat.id,
                                         reply_markup=InlineKeyboardMarkup(buttons), text=second_food_price)
     
@@ -36,8 +36,8 @@ def queryHandler(update: Update, context: CallbackContext):
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(third_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton("add to buskets🥡", callback_data="third")],
-                    [InlineKeyboardButton("finish order! :(", callback_data="tugadi")]]
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data="third")],
+                    [InlineKeyboardButton(Finish_Order, callback_data="tugadi")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
                                     reply_markup=InlineKeyboardMarkup(buttons), text=third_food_price)
 
@@ -63,7 +63,7 @@ def queryHandler(update: Update, context: CallbackContext):
                 [InlineKeyboardButton(second_food_name, callback_data="2")],
                 [InlineKeyboardButton(third_food_name, callback_data="3")]]
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                reply_markup=InlineKeyboardMarkup(buttons), text="choose what food you want😊😊😊")
+                                reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
                 
 
 

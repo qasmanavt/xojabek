@@ -20,10 +20,17 @@ contact_button="Share_Contact"
 contact_button_text="Please press to Button"
 
 Basket="Basket"
+Basket_adding="add to buskets🥡"
+
+
+
+
+
 Menu="Menu"
 Menu_text="choose what food you want😊😊😊"
 
 Order_Status="order status"
+Finish_Order="finish order! :("
 
 start_text="hello my dear , thanks for using this bot"
 
