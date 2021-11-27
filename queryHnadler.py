@@ -54,16 +54,7 @@ def queryHandler(update: Update, context: CallbackContext):
         first_food=0
         second_food=0
         third_food=0
-        image = get(url).content
-        context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[
-                                InputMediaPhoto(image, caption="")])
-
-        buttons = [[InlineKeyboardButton(first_food_name, callback_data="1")],
-                [InlineKeyboardButton(second_food_name, callback_data="2")],
-                [InlineKeyboardButton(third_food_name, callback_data="3")]]
-        context.bot.send_message(chat_id=update.effective_chat.id,
-                                reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
-                
+                  
 
 
 

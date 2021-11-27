@@ -50,6 +50,7 @@ def messageHandler(update: Update, context: CallbackContext):
 
     if Menu in update.message.text:
         id=update.effective_chat.id
+        
       
 
 
@@ -74,6 +75,14 @@ def messageHandler(update: Update, context: CallbackContext):
     
 
     if Order_Status in update.message.text:
+        id=update.effective_chat.id
+        cursor = connection.cursor()
+        cursor.execute(f'select phone_number  from bot2 where id=?  ;',id
+                        )
+
+        contac.phone_number2=cursor.fetchone()[0]
+        
+        connection.commit()
         cursor = connection.cursor()
         cursor.execute(f'select top 1 status  from bot2 where phone_number=? order by time desc ;',contac.phone_number2)
         context.bot.send_message(chat_id=update.effective_chat.id,text=cursor.fetchone()[0])

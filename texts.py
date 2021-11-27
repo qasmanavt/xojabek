@@ -39,7 +39,9 @@ start_text="hello my dear , thanks for using this bot"
 
 
 connection = pyodbc.connect(
-    "Driver={SQL Server Native Client 11.0};"
-    "Server=LAPTOP-DFK8LR20;"
+    
+    r"Driver={SQL Server};"
+    "Server=sqltestbug.database.windows.net;"
     "Database=testdb;"
-    "Trusted_Connection=yes;")
+    "UID=testdb;"
+    "PWD=Dotaru83")
