@@ -1,1 +1,8 @@
 worker: python main.py
+worker: python config.py
+worker: python contac.py
+worker: python message_handler.py
+worker: python pictures.py
+worker: python queryHandler.py
+worker: python start.py
+worker: python texts.py
