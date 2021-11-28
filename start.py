@@ -16,8 +16,4 @@ def startCommand(update: Update, context: CallbackContext):
         context.bot.send_message(chat_id=update.effective_chat.id,
                             text=contact_button_text, reply_markup=ReplyKeyboardMarkup(contact_keyboard))
         
-        time.sleep(10)
- 
-        buttons = [[KeyboardButton(begin)]]
-        context.bot.send_message(chat_id=update.effective_chat.id,
-                            text=begin_text, reply_markup=ReplyKeyboardMarkup(buttons))
+   
