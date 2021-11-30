@@ -17,8 +17,8 @@ def getContact(update: Update, context: CallbackContext):
     phone_number2=phone_number1
     print(update.effective_chat.id)
     cursor = connection.cursor()
-    cursor.execute('insert into bot2 (time, phone_number,first_food,second_food,third_food,id) values (?,?,?,?,?,?);',
-                    (datetime.now(),phone_number2,0,0,0,update.effective_chat.id))
+    cursor.execute('insert into bot2 (time, phone_number,first_food,second_food,third_food,id,status,name) values (?,?,?,?,?,?,?,?);',
+                    (datetime.now(),phone_number2,0,0,0,update.effective_chat.id,"waiting",update.effective_chat.full_name))
     connection.commit()
     
     buttons = [[KeyboardButton(begin)]]

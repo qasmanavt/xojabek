@@ -1,7 +1,5 @@
 from telegram import *
 from telegram.ext import *
-from datetime import   time
-import time
 from texts import *
  
  
