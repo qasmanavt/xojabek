@@ -1,4 +1,5 @@
 from requests import *
+from telegram import chat, message, messageid
 from pictures import *
 from datetime import datetime 
 from contac import *
@@ -7,16 +8,26 @@ import contac
 def queryHandler(update: Update, context: CallbackContext):
     query = update.callback_query.data
     update.callback_query.answer()
-    global first_food, second_food, third_food, order_status
+    global  order_status
+
 
     if "1" in query:
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(first_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=first_food_name)],
-                    [InlineKeyboardButton(Finish_Order, callback_data=Finish)]]
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=first_food_name)],[InlineKeyboardButton(Back, callback_data=Back)]
+                    ]
+                    
+
+       
         context.bot.send_message(chat_id=update.effective_chat.id,
                                     reply_markup=InlineKeyboardMarkup(buttons), text=first_food_price)
+
+   
+        
+     
+
+        
         
 
     elif "2" in query:
@@ -24,22 +35,23 @@ def queryHandler(update: Update, context: CallbackContext):
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(second_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=second_food_name)],
-                    [InlineKeyboardButton(Finish_Order, callback_data=Finish)]]
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=second_food_name)],[InlineKeyboardButton(Back, callback_data=Back)]
+                  ]
         a = context.bot.send_message(chat_id=update.effective_chat.id,
                                         reply_markup=InlineKeyboardMarkup(buttons), text=second_food_price)
     
 
     elif "3" in query:
+        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=third_food_name)],
+                   [InlineKeyboardButton(Back, callback_data=Back)]]
         context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[InputMediaPhoto(
             get(third_food_url).content, caption="")])
 
-        buttons = [[InlineKeyboardButton(Basket_adding, callback_data=third_food_name)],
-                    [InlineKeyboardButton(Finish_Order, callback_data=Finish)]]
+        
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                    reply_markup=InlineKeyboardMarkup(buttons), text=third_food_price)
+                                    reply_markup=InlineKeyboardMarkup(buttons),text=third_food_price)
 
-    elif Finish in query:
+    elif Finish_Order in query:
         
         print(contac.phone_number2)
         context.bot.send_message(
@@ -51,18 +63,49 @@ def queryHandler(update: Update, context: CallbackContext):
         cursor.execute('update src set status=?  from (select top 1 * from bot2 where id=? order by time desc) src',("waiting",update.effective_chat.id))
         connection.commit()
       
-        
-        first_food=0
-        second_food=0
-        third_food=0
+     
        
         contac.phone_number2=""
+    elif Clear in query:
+        
+        print(contac.phone_number2)
+        context.bot.send_message(
+            chat_id=update.effective_chat.id, text=Cleared_Text)
+        cursor=connection.cursor()
+
+
+
+        cursor.execute('update src set first_food=?,second_food=?,third_food=?  from (select top 1 * from bot2 where id=? order by time desc) src',(0,0,0,update.effective_chat.id))
+        connection.commit()
+
+    elif Back in query:
+    
+
+        buttons = [[InlineKeyboardButton(first_food_name, callback_data="1")],
+                   [InlineKeyboardButton(second_food_name, callback_data="2")],
+                   [InlineKeyboardButton(third_food_name, callback_data="3")],
+                    [InlineKeyboardButton(Back, callback_data=Back2)]]
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
+
+       
+        
+        
+    elif Back2 in query:
+        context.bot.send_message(chat_id=update.effective_chat.id, text=Back2_text)
+       
+       
+        
+      
 
                   
 
 
 
     elif first_food_name in query:
+
+       
+      
        
         cursor=connection.cursor()
         
@@ -73,10 +116,13 @@ def queryHandler(update: Update, context: CallbackContext):
         cursor = connection.cursor()
         first_food=cursor.execute('select top 1 first_food  from bot2 where id=? order by time desc',update.effective_chat.id).fetchone()[0]
         connection.commit()
-  
-
+        
+     
         context.bot.send_message(chat_id=update.effective_chat.id,
                                     text=f"added {first_food}   to buskets 😄,if you want click again")
+        
+
+        
         
          
 

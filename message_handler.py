@@ -10,26 +10,12 @@ import contac
 def messageHandler(update: Update, context: CallbackContext):
       
     if begin in update.message.text:
-        
-    
-        global phone_number
-          
-        
-        button = [[KeyboardButton(Basket)], [KeyboardButton(Menu)], [
+        button = [ [KeyboardButton(Menu)],[KeyboardButton(Basket)], [
             KeyboardButton(Order_Status)]]
-
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                text=start_text, reply_markup=ReplyKeyboardMarkup(button))
+                             text=Menu_text, reply_markup=ReplyKeyboardMarkup(button, resize_keyboard=True))
+        
 
-        image = get(url).content
-        context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[
-                                InputMediaPhoto(image, caption="")])
-
-        buttons = [[InlineKeyboardButton(first_food_name, callback_data="1")],
-                [InlineKeyboardButton(second_food_name, callback_data="2")],
-                [InlineKeyboardButton(third_food_name, callback_data="3")]]
-        context.bot.send_message(chat_id=update.effective_chat.id,
-                                reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
 
     if Basket in update.message.text:
         order = ""
@@ -52,24 +38,23 @@ def messageHandler(update: Update, context: CallbackContext):
         else:
             print("eeee")
         
-        text=order+"\n"+"Total price :"+str(price_sum)+" sum"
+        text2=order+"\n"+"Total price :"+str(price_sum)+" sum"
+        buttons= [[InlineKeyboardButton(Finish_Order, callback_data=Finish_Order)],
+                   [InlineKeyboardButton(Clear, callback_data=Clear)],
+                   [InlineKeyboardButton(Back, callback_data=Back2)]
+                   ]
          
-        context.bot.send_message(chat_id=update.effective_chat.id, text=text)
+        context.bot.send_message(chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons),text=text2)
+        
         
 
     if Menu in update.message.text:
         id=update.effective_chat.id
-        
-      
-
-
-        image = get(url).content
-        context.bot.sendMediaGroup(chat_id=update.effective_chat.id, media=[
-                                   InputMediaPhoto(image, caption="")])
 
         buttons = [[InlineKeyboardButton(first_food_name, callback_data="1")],
                    [InlineKeyboardButton(second_food_name, callback_data="2")],
-                   [InlineKeyboardButton(third_food_name, callback_data="3")]]
+                   [InlineKeyboardButton(third_food_name, callback_data="3")],
+                   [InlineKeyboardButton(Back, callback_data=Back2)]]
         context.bot.send_message(chat_id=update.effective_chat.id,
                                  reply_markup=InlineKeyboardMarkup(buttons), text=Menu_text)
        
